@@ -4,7 +4,8 @@
   <form>
   <div class="form-group">
     <label for="name">Name</label>
-    <input [(ngModel)]="userModel.name" type="text"  name="name" id="name" class="form-control">
+    <input #name="ngModel" [(ngModel)]="userModel.name" type="text" [required]="true"
+           name="name" id="name" class="form-control is-invalid" [class.is-invalid]="name.invalid && name.touched">
   </div>
   <div class="form-group">
     <label for="email">Email</label>
@@ -12,7 +13,7 @@
   </div>
   <div class="form-group">
     <label for="phone">Phone Number</label>
-    <input [ngModel]="userModel.phone" type="text" id="phone" name="phone" class="form-control">
+    <input #phone="ngModel" [ngModel]="userModel.phone" type="text" id="phone" name="phone" class="form-control" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched">
   </div>
 
   <div class="form-group">
@@ -30,7 +31,7 @@
       <label for="morning" class="form-check-label">Morning (9am - 12pm)</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="morning">
+      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="afternoon">
       <label for="afternoon" class="form-check-label">Afternoon (12pm - 3pm)</label>
     </div>
   </div>

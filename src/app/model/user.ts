@@ -7,7 +7,7 @@ export class User {
   public subscribe: boolean;
 
 
-  constructor(name: string, email: string, phone: number, topic: string, timePreference: string, subscribe: boolean) {
+  constructor(name?: string, email?: string, phone?: number, topic?: string, timePreference?: string, subscribe?: boolean) {
     this.name = name;
     this.email = email;
     this.phone = phone;
