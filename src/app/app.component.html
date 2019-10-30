@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <div class="container-fluid">
   <h1>Bootcamp enrollment form</h1>
-  <form #userForm = "ngForm">
+  <form #userForm = "ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">Name</label>
     <input #name="ngModel" [(ngModel)]="userModel.name" type="text" [required]="true"
@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input [ngModel]="userModel.email" type="text" id="email" name="email" class="form-control">
+    <input [(ngModel)]="userModel.email" type="text" id="email" name="email" class="form-control">
   </div>
   <div class="form-group">
     <label for="phone">Phone Number</label>
@@ -26,7 +26,7 @@
   <div class="form-group">
     <label for="topic">Choose your topic</label>
     <br>
-    <select [ngModel]="userModel.topic" id="topic" name="topic" class="custom-select" required [class.is-invalid]="topic.invalid && topic.touched" #topic="ngModel">
+    <select [(ngModel)]="userModel.topic" id="topic" name="topic" class="custom-select" required [class.is-invalid]="topic.invalid && topic.touched" #topic="ngModel">
       <option *ngFor="let topic of topics">{{topic}}</option>
     </select>
     <small class="text-danger" *ngIf="topic.invalid && topic.touched">Topic is required</small>
@@ -35,20 +35,20 @@
   <div class="mb-3">
     <label>Time preference</label>
     <div class="form-check">
-      <input type="radio" class="form-check-input" [ngModel]="userModel.timePreference" id="morning" name="timePreference" value="morning">
+      <input type="radio" class="form-check-input" [ngModel]="userModel.timePreference" id="morning" name="timePreference" value="morning"  [(ngModel)] = userModel.timePreference>
       <label for="morning" class="form-check-label">Morning (9am - 12pm)</label>
     </div>
     <div class="form-check">
-      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="afternoon">
+      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="afternoon" [(ngModel)] = userModel.timePreference>
       <label for="afternoon" class="form-check-label">Afternoon (12pm - 3pm)</label>
     </div>
   </div>
 
   <div class="form-check mb-3">
-    <input [ngModel]="userModel.subscribe" type="checkbox" name="subscribe" class="form-check-input">
+    <input [ngModel]="userModel.subscribe" type="checkbox" name="subscribe" class="form-check-input" [(ngModel)]="userModel.subscribe">
     <label class="form-check-label">Send me offers</label>
   </div>
 
-  <button [disabled]="userForm.form.invalid" class="btn btn-primary">Submit Form</button>
+  <button [disabled]="userForm.form.invalid"  type="submit" class="btn btn-primary">Submit Form</button>
   </form>
 </div>

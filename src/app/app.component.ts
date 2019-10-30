@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from './model/user';
+import {EnrollmentService} from "./service/enrollment.service";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,16 @@ export class AppComponent {
   topics = ['Angular', 'React', 'Vue'];
   title = 'angularforms';
 
- userModel = new User('', 'angular', 4555, '');
+  constructor(public enrollmentService: EnrollmentService) {
+  }
 
+  userModel = new User('', 'angular', 4555, '');
+
+  onSubmit() {
+    this.enrollmentService.enroll(this.userModel).subscribe(
+      data => console.log('success!', data),
+      error => console.log('error!', error)
+
+    );
+  }
 }
