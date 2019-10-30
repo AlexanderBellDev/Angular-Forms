@@ -26,9 +26,10 @@
   <div class="form-group">
     <label for="topic">Choose your topic</label>
     <br>
-    <select [ngModel]="userModel.topic" id="topic" name="topic" class="custom-select">
+    <select [ngModel]="userModel.topic" id="topic" name="topic" class="custom-select" required [class.is-invalid]="topic.invalid && topic.touched" #topic="ngModel">
       <option *ngFor="let topic of topics">{{topic}}</option>
     </select>
+    <small class="text-danger" *ngIf="topic.invalid && topic.touched">Topic is required</small>
   </div>
 
   <div class="mb-3">

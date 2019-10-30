@@ -10,6 +10,6 @@ export class AppComponent {
   topics = ['Angular', 'React', 'Vue'];
   title = 'angularforms';
 
- userModel = new User('', 'angular', 4555, 'Vue');
+ userModel = new User('', 'angular', 4555, '');
 
 }
