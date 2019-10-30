@@ -15,11 +15,12 @@ export class AppComponent {
   }
 
   userModel = new User('', 'angular', 4555, '');
+  errorMessage;
 
   onSubmit() {
     this.enrollmentService.enroll(this.userModel).subscribe(
       data => console.log('success!', data),
-      error => console.log('error!', error)
+      error => {this.errorMessage = error}
 
     );
   }
