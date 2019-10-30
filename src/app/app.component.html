@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <div class="container-fluid">
   <h1>Bootcamp enrollment form</h1>
-  <form>
+  <form #userForm = "ngForm">
   <div class="form-group">
     <label for="name">Name</label>
     <input #name="ngModel" [(ngModel)]="userModel.name" type="text" [required]="true"
@@ -17,9 +17,9 @@
     <input #phone="ngModel" [ngModel]="userModel.phone" type="text" id="phone" name="phone"
            class="form-control" pattern="^\d{10}$" required="" [class.is-invalid]="phone.invalid && phone.touched">
 <!--    <smaLL [class.d-none]="phone.valid || phone.untouched">Phone number should be 10 digits and is required</smaLL>-->
- <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
-  <smaLL *ngIf="phone.errors.pattern">Phone number should be 10 digits</smaLL>
-   <smaLL  *ngIf="phone.errors.required">Phone number is required</smaLL>
+ <div *ngIf="phone.errors && (phone.invalid && phone.touched)">
+  <smaLL class="text-danger" *ngIf="phone.errors.pattern">Phone number should be 10 digits</smaLL>
+   <smaLL class="text-danger"  *ngIf="phone.errors.required">Phone number is required</smaLL>
  </div>
   </div>
 
@@ -49,6 +49,6 @@
     <label class="form-check-label">Send me offers</label>
   </div>
 
-  <button class="btn btn-primary">Submit Form</button>
+  <button [disabled]="userForm.form.invalid" class="btn btn-primary">Submit Form</button>
   </form>
 </div>
