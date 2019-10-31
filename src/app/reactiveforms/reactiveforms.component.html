@@ -15,7 +15,19 @@
     <label>Confirm Password</label>
     <input formControlName="confirmPassword" type="password" class="form-control">
   </div>
+    <div formGroupName="address">
+    <div class="form-group">
+      <label>City</label>
+      <input formControlName="city" type="text" class="form-control">
+    </div>
 
+    <div class="form-group">
+      <label>Postal Code</label>
+      <input type="text" formControlName="postalCode" class="form-control">
+    </div>
+    </div>
   <button class="btn btn-primary" type="submit">Register</button>
   </form>
+
+  {{regForm.value | json}}
 </div>
