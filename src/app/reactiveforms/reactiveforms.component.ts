@@ -7,8 +7,8 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./reactiveforms.component.css']
 })
 export class ReactiveformsComponent implements OnInit {
-  regForm = new FormGroup({
-    username: new FormControl('Alex'),
+  public regForm = new FormGroup({
+    username: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
     address: new FormGroup({
@@ -21,4 +21,14 @@ export class ReactiveformsComponent implements OnInit {
   ngOnInit() {
   }
 
+  loadApiData() {
+this.regForm.patchValue({
+  password: 'test',
+  confirmPassword: 'test',
+  address : {
+    city : 'city',
+    postalCode: '123456'
+  }
+});
+  }
 }
