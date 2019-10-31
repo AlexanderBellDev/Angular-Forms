@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-reactiveforms',
@@ -7,16 +7,28 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./reactiveforms.component.css']
 })
 export class ReactiveformsComponent implements OnInit {
-  public regForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    address: new FormGroup({
-      city: new FormControl(''),
-      postalCode: new FormControl('')
+  constructor(private formBuilder: FormBuilder) { }
+  regForm = this.formBuilder.group({
+    username: [''],
+    password: [''],
+    confirmPassword: [''],
+    address: this.formBuilder.group({
+      city: [''],
+      postalCode: ['']
     })
   });
-  constructor() { }
+
+  // public regForm = new FormGroup({
+  //   username: new FormControl(''),
+  //   password: new FormControl(''),
+  //   confirmPassword: new FormControl(''),
+  //   address: new FormGroup({
+  //     city: new FormControl(''),
+  //     postalCode: new FormControl('')
+  //   })
+  // });
+
+
 
   ngOnInit() {
   }
