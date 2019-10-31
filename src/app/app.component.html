@@ -1,45 +1,46 @@
-<router-outlet></router-outlet>
-<div class="container-fluid">
-  <h1>Bootcamp enrollment form</h1>
-  <form>
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input [(ngModel)]="userModel.name" type="text"  name="name" id="name" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input [ngModel]="userModel.email" type="text" id="email" name="email" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="phone">Phone Number</label>
-    <input [ngModel]="userModel.phone" type="text" id="phone" name="phone" class="form-control">
-  </div>
+<!--<router-outlet></router-outlet>-->
+<!--<div class="container-fluid">-->
+<!--  <h1>Bootcamp enrollment form</h1>-->
+<!--  <form #userForm="ngForm">-->
+<!--  <div class="form-group">-->
+<!--    <label for="name">Name</label>-->
+<!--    <input [(ngModel)]="userModel.name" type="text"  name="name" id="name" class="form-control">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="email">Email</label>-->
+<!--    <input [ngModel]="userModel.email" type="text" id="email" name="email" class="form-control">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="phone">Phone Number</label>-->
+<!--    <input [ngModel]="userModel.phone" type="text" id="phone" name="phone" class="form-control">-->
+<!--  </div>-->
 
-  <div class="form-group">
-    <label for="topic">Choose your topic</label>
-    <br>
-    <select [ngModel]="userModel.topic" id="topic" name="topic" class="custom-select">
-      <option *ngFor="let topic of topics">{{topic}}</option>
-    </select>
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="topic">Choose your topic</label>-->
+<!--    <br>-->
+<!--    <select [ngModel]="userModel.topic" id="topic" name="topic" class="custom-select">-->
+<!--      <option *ngFor="let topic of topics">{{topic}}</option>-->
+<!--    </select>-->
+<!--  </div>-->
 
-  <div class="mb-3">
-    <label>Time preference</label>
-    <div class="form-check">
-      <input type="radio" class="form-check-input" [ngModel]="userModel.timePreference" id="morning" name="timePreference" value="morning">
-      <label for="morning" class="form-check-label">Morning (9am - 12pm)</label>
-    </div>
-    <div class="form-check">
-      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="morning">
-      <label for="afternoon" class="form-check-label">Afternoon (12pm - 3pm)</label>
-    </div>
-  </div>
+<!--  <div class="mb-3">-->
+<!--    <label>Time preference</label>-->
+<!--    <div class="form-check">-->
+<!--      <input type="radio" class="form-check-input" [ngModel]="userModel.timePreference" id="morning" name="timePreference" value="morning">-->
+<!--      <label for="morning" class="form-check-label">Morning (9am - 12pm)</label>-->
+<!--    </div>-->
+<!--    <div class="form-check">-->
+<!--      <input type="radio" class="form-check-input"  [ngModel]="userModel.timePreference" id="afternoon" name="timePreference" value="afternoon">-->
+<!--      <label for="afternoon" class="form-check-label">Afternoon (12pm - 3pm)</label>-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <div class="form-check mb-3">
-    <input [ngModel]="userModel.subscribe" type="checkbox" name="subscribe" class="form-check-input">
-    <label class="form-check-label">Send me offers</label>
-  </div>
+<!--  <div class="form-check mb-3">-->
+<!--    <input [ngModel]="userModel.subscribe" type="checkbox" name="subscribe" class="form-check-input">-->
+<!--    <label class="form-check-label">Send me offers</label>-->
+<!--  </div>-->
 
-  <button class="btn btn-primary">Submit Form</button>
-  </form>
-</div>
+<!--  <button class="btn btn-primary">Submit Form</button>-->
+<!--  </form>-->
+<!--</div>-->
+<app-reactiveforms></app-reactiveforms>
