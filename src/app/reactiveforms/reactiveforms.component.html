@@ -3,7 +3,10 @@
   <form [formGroup]="regForm">
   <div class="form-group">
     <label>Username</label>
-    <input formControlName="username" type="text" class="form-control">
+    <input [class.is-invalid]="regForm.get('username').invalid && regForm.get('username').touched"   formControlName="username" type="text" class="form-control">
+ <small class="text-danger" *ngIf="regForm.get('username').errors?.minlength && regForm.get('username').touched">Username Should be three</small>
+    <small class="text-danger" *ngIf="regForm.get('username').errors?.required && regForm.get('username').touched">Username is required</small>
+
   </div>
 
   <div class="form-group">
